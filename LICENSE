@@ -22,101 +22,60 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
-#include <stdio.h>
-#include <string.h>
 
-#define MAX 100
 
-// Estrutura que representa uma carta de cidade
-typedef struct {
-    char estado[50];
-    int codigo;
-    char nome[50];
-    long int populacao;
-    double pib; // em bilhões
-    double area; // em km²
-    int pontosTuristicos;
 
-    // Atributos calculados
-    double densidadePopulacional;
-    double pibPerCapita;
-} CartaCidade;
 
-// Função para calcular atributos derivados
-void calcularAtributos(CartaCidade *carta) {
-    if (carta->area > 0)
-        carta->densidadePopulacional = carta->populacao / carta->area;
-    else
-        carta->densidadePopulacional = 0;
 
-    if (carta->populacao > 0)
-        carta->pibPerCapita = (carta->pib * 1e9) / carta->populacao;
-    else
-        carta->pibPerCapita = 0;
-}
 
-// Função para cadastrar uma carta
-void cadastrarCarta(CartaCidade *carta) {
-    printf("Digite o nome da cidade: ");
-    scanf(" %[^\n]", carta->nome);
 
-    printf("Digite o estado: ");
-    scanf(" %[^\n]", carta->estado);
 
-    printf("Digite o código da cidade: ");
-    scanf("%d", &carta->codigo);
 
-    printf("Digite a população: ");
-    scanf("%ld", &carta->populacao);
 
-    printf("Digite o PIB (em bilhões): ");
-    scanf("%lf", &carta->pib);
 
-    printf("Digite a área (em km²): ");
-    scanf("%lf", &carta->area);
 
-    printf("Digite o número de pontos turísticos: ");
-    scanf("%d", &carta->pontosTuristicos);
 
-    calcularAtributos(carta);
-}
 
-// Função para exibir uma carta
-void exibirCarta(CartaCidade carta) {
-    printf("\n===== CARTA SUPER TRUNFO - CIDADE =====\n");
-    printf("Nome da Cidade: %s\n", carta.nome);
-    printf("Estado: %s\n", carta.estado);
-    printf("Código: %d\n", carta.codigo);
-    printf("População: %ld\n", carta.populacao);
-    printf("PIB: %.2f bilhões\n", carta.pib);
-    printf("Área: %.2f km²\n", carta.area);
-    printf("Pontos Turísticos: %d\n", carta.pontosTuristicos);
-    printf("Densidade Populacional: %.2f hab/km²\n", carta.densidadePopulacional);
-    printf("PIB per capita: R$ %.2f\n", carta.pibPerCapita);
-    printf("========================================\n");
-}
 
-int main() {
-    CartaCidade cartas[MAX];
-    int qtd, i;
 
-    printf("Quantas cartas deseja cadastrar? ");
-    scanf("%d", &qtd);
 
-    if (qtd > MAX) {
-        printf("Número máximo de cartas é %d.\n", MAX);
-        return 1;
-    }
 
-    for (i = 0; i < qtd; i++) {
-        printf("\n--- Cadastro da carta %d ---\n", i + 1);
-        cadastrarCarta(&cartas[i]);
-    }
 
-    printf("\n>>> CARTAS CADASTRADAS <<<\n");
-    for (i = 0; i < qtd; i++) {
-        exibirCarta(cartas[i]);
-    }
 
-    return 0;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
